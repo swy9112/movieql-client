@@ -1,12 +1,26 @@
-import gql from 'graphql-tag';
+import gql from "graphql-tag";
 
-const HOME_PAGE = gql`
-    query {
-        movies(limit: 3) {
-        id
-        title
-        }
+export const HOME_PAGE = gql`
+  {
+    movies(limit: 50, rating: 7) {
+      id
+      title
+      rating
+      genres
+      medium_cover_image
     }
+  }
 `;
 
-export default HOME_PAGE;
+export const MOVIE_DETAILS = gql`
+  query getMovieDetails($movieId:Int!) {
+      movie(id: movieId) {
+        id
+        title
+        rating
+        genres
+        medium_cover_image
+      }
+    }
+  
+`;
