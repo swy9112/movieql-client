@@ -13,14 +13,19 @@ export const HOME_PAGE = gql`
 `;
 
 export const MOVIE_DETAILS = gql`
-  query getMovieDetails($movieId:Int!) {
-      movie(id: movieId) {
-        id
-        title
-        rating
-        genres
-        medium_cover_image
-      }
+  query getMovieDetails($movieId_INT: Int!) {
+    movie(id: $movieId_INT) {
+      id
+      title
+      rating
+      genres
+      medium_cover_image
     }
-  
+    suggestions(id: $movieId_INT) {
+      id
+      title
+      rating
+      medium_cover_image
+    }
+  }
 `;

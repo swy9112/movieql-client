@@ -15,7 +15,6 @@ const Home = () => (
   <Container>
     <Query query={HOME_PAGE}>
       {({ loading, data, error }) => {
-        console.log(data.movies)
         if (loading) return "loading";
         if (error) return "something happened";
         return data.movies.map(movie => (
